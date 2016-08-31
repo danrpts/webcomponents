@@ -105,8 +105,12 @@ var Input = View.extend({
   onChipInputEnter: function (event) {
     var $input = this.$(event.currentTarget);
     var value = $input.val().trim();
-    this.collection.push({value: value});
-    $input.val('');
+    var collection = this.collection;
+    var attributes = { value: value };
+    if (!!value && !collection.findWhere(attributes)) {
+      collection.push(attributes);
+      $input.val('');
+    }
   },
 
   onChipInputBackspace: function (event) {
