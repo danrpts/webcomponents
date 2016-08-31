@@ -70,14 +70,15 @@ var Input = View.extend({
         <div style="flex-grow: 1; flex-shrink: 2; padding: 0 0 8px 3px;">\
           <input class="mdl-textfield__input" type="text" autocomplete="off" list="chip-list" id="chip-input" style="width: 100%; border: none; line-height: 32px; padding: 0; margin: 2px 0; font-size: 13px;">\
           <datalist id="chip-list">\
-            //Ideally populate the list via ajax or loaded json\
+            <!-- Ideally populate the list via ajax or loaded json -->\
             <% Array(10).fill("Chip").forEach(function (element) { %>\
               <option class="chip-option" value="<%= element %>">\
             <% }) %>\
           </datalist>\
         </div>\
       </div>\
-      <label class="mdl-textfield__label" for="chip-input">//Todo: css for label alignment</label>\
+      <!-- Todo: css for label alignment -->\
+      <label class="mdl-textfield__label" for="chip-input"></label>\
     </div>\
   </div>\
   ',
