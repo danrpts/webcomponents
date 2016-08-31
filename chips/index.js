@@ -63,9 +63,9 @@ var Input = View.extend({
 
   template: 
   '\
-  <div style="width: 800px;">\
+  <div style="width: 800px; margin: 0 auto;">\
     <div class="mdl-textfield mdl-js-textfield" style="width: 100%;">\
-      <div style="display: flex; flex-direction: row; flex-wrap: wrap">\
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap; border-bottom: 1px solid rgba(0,0,0,.12);">\
         <div id="chips-list" style="flex-shrink: 1; padding: 0 0 8px 3px;"></div>\
         <div style="flex-grow: 1; flex-shrink: 2; padding: 0 0 8px 3px;">\
           <input class="mdl-textfield__input" type="text" autocomplete="off" list="chip-list" id="chip-input" style="width: 100%; border: none; line-height: 32px; padding: 0; margin: 2px 0; font-size: 13px;">\
