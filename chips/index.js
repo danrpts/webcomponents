@@ -55,7 +55,7 @@ var List = View.extend({
   onChipDeleteClick: function (event) {
     var cid = event.currentTarget.id;
     this.collection.remove(cid);
-  },
+  }
 
 });
 
@@ -63,18 +63,23 @@ var Input = View.extend({
 
   template: 
   '\
-    <div class="mdl-textfield mdl-js-textfield" style="width: 100%; display: flex; flex-direction: row">\
-      <div id="chips-list" style="padding: 0 0 8px 3px;"></div>\
-      <div style="flex: auto; padding: 0 0 8px 3px;">\
-        <input type="text" autocomplete="off" list="chip-list" id="chip-input" style="outline: none; border: none; line-height: 32px; padding: 0 12px; margin: 2px 0; font-size: 13px;">\
+  <div style="width: 800px;">\
+    <div class="mdl-textfield mdl-js-textfield" style="width: 100%;">\
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap">\
+        <div id="chips-list" style="flex-shrink: 1; padding: 0 0 8px 3px;"></div>\
+        <div style="flex-grow: 1; flex-shrink: 2; padding: 0 0 8px 3px;">\
+          <input class="mdl-textfield__input" type="text" autocomplete="off" list="chip-list" id="chip-input" style="width: 100%; border: none; line-height: 32px; padding: 0; margin: 2px 0; font-size: 13px;">\
+          <datalist id="chip-list">\
+            //Ideally populate the list via ajax or loaded json\
+            <% Array(10).fill("Chip").forEach(function (element) { %>\
+              <option class="chip-option" value="<%= element %>">\
+            <% }) %>\
+          </datalist>\
+        </div>\
       </div>\
-      <datalist id="chip-list">\
-        //Ideally populate the list via ajax or loaded json\
-        <% Array(10).fill("Chip").forEach(function (element) { %>\
-          <option class="chip-option" value="<%= element %>">\
-        <% }) %>\
-      </datalist>\
+      <label class="mdl-textfield__label" for="chip-input">//Todo: css for label alignment</label>\
     </div>\
+  </div>\
   ',
 
   initialize: function () {},
