@@ -68,12 +68,6 @@ var List = View.extend({
     <% }); %>\
   ',
 
-  initialize: function () {
-
-    // Re-render the radio list when the group state is modified
-    this.listenTo(this.collection, 'change', this.render);
-  },
-
   render: function () {
     this.$el.html(_.template(this.template)(this.collection));
     componentHandler.upgradeElements(this.el);
@@ -85,9 +79,6 @@ var List = View.extend({
   },
 
   onRadioClick: function (event) {
-
-    // Prevent the browser from handling the view update as our listener re-renders instead
-    event.preventDefault();
     var cid = event.currentTarget.id;
     this.collection.toggleActive(cid);
   }
@@ -96,7 +87,7 @@ var List = View.extend({
 
 $(function () {
   var body = $('body');
-  var radios = new Radios([{ value: 'Hello World' }, { value: 'Goodbye World' }]);
+  var radios = new Radios([{ active: true, value: 'Hello World' }, { value: 'Goodbye World' }]);
   var list = new List({ collection: radios });
   list.render().appendTo(body);
 })
